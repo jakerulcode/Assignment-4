@@ -1,6 +1,8 @@
 let interviewList = [];
 let rejectedList = [];
-let currentStatus="all"
+let currentStatus="all";
+
+let jobResultCount = document.getElementById('job-result-count');
 
 let total = document.getElementById("total-count");
 let interviewCount = document.getElementById("interview-count");
@@ -13,11 +15,14 @@ const rejectedFilterBtn = document.getElementById("rejected-filter-btn");
 const allCardsSection = document.getElementById("all-cards");
 const mainContainer = document.querySelector("main");
 const filteredSection = document.getElementById("filtered-section");
+const emptyBox =document.getElementById('empty-box'); 
 
 function calculateCount() {
   total.innerText = allCardsSection.children.length;
   interviewCount.innerText = interviewList.length;
   rejectCount.innerText = rejectedList.length;
+  // jobResultCount.innerText = interviewList.length + "of" +allCardsSection.children.length;
+
 }
 calculateCount();
 
@@ -37,18 +42,36 @@ function togglingStyle(id) {
   selected.classList.remove("bg-[#FFFFFF]", "text-[#64748B]");
   selected.classList.add("bg-[#3B82F6]", "text-white");
 
+  // for toggling empty document
+
+  emptyBox.classList.add("hidden");
+  filteredSection.classList.add("hidden");
+  allCardsSection.classList.add("hidden");
+
   if (id == "interview-filter-btn") {
-    allCardsSection.classList.add("hidden");
-    filteredSection.classList.remove("hidden");
-     renderInterview()
-  } else if (id == "all-filter-btn") {
+
+    if (interviewList.length === 0) {
+      emptyBox.classList.remove("hidden");
+    } else {
+      filteredSection.classList.remove("hidden");
+      renderInterview();
+    }
+
+  } 
+  else if (id == "rejected-filter-btn") {
+
+    if (rejectedList.length === 0) {
+      emptyBox.classList.remove("hidden");
+    } else {
+      filteredSection.classList.remove("hidden");
+      renderRejected();
+    }
+
+  } 
+  else if (id == "all-filter-btn") {
     allCardsSection.classList.remove("hidden");
-    filteredSection.classList.add("hidden");
-  } else if (id == "rejected-filter-btn") {
-    allCardsSection.classList.add("hidden");
-    filteredSection.classList.remove("hidden");
-    renderRejected()
   }
+  
 }
 
 mainContainer.addEventListener("click", function (event) {
