@@ -62,26 +62,33 @@
         <p class="text-[#64748B]">8 Jobs</p>
       </div>
 
-      <div class="btn-container gap-2 mb-5">
+      <div class=" btn-container gap-2 mb-5 ">
         <button
-          id="all-filter-btn"
-          class="min-w[90px] sm:min-w-[110px] px-7 py-2 rounded-sm bg-[#3B82F6] text-white border-[#F1F2F4] border text-[12px] cursor-pointer"
+          id="all-filter-btn" onclick="togglingStyle('all-filter-btn')"
+          class="min-w-[110px] px-7 py-2 rounded-sm bg-[#3B82F6] text-white border-[#F1F2F4] border text-[12px] cursor-pointer"
         >
           All
         </button>
         <button
-          id="interview-filter-btn"
+          id="interview-filter-btn" onclick="togglingStyle('interview-filter-btn')"
           class="min-w-[110px] px-7 py-2 rounded-sm bg-[#FFFFFF] text-[#64748B] border-[#F1F2F4] border text-[12px] cursor-pointer"
         >
           Interview
         </button>
         <button
-          id="rejected-filter-btn"
+          id="rejected-filter-btn" onclick="togglingStyle('rejected-filter-btn')"
           class="min-w-[110px] px-7 py-2 rounded-sm bg-[#FFFFFF] text-[#64748B] border-[#F1F2F4] border text-[12px] cursor-pointer"
         >
           Rejected
         </button>
       </div>
+
+        <!-- filtered-card -->
+
+        <section id="filtered-section" class="hidden">
+          
+        </section>
+
 
       <section id="all-cards" class="space-y-4">
         <!-- main-card -->
@@ -110,12 +117,12 @@
 
             <div class="buttons-container flex gap-2">
               <button
-                class="py-2 px-3 bg-white border border-[#10B981] rounded-lg text-green text-[#10B981] font-semibold cursor-pointer"
+                class="interview-btn py-2 px-3 bg-white border border-[#10B981] rounded-lg text-green text-[#10B981] font-semibold cursor-pointer"
               >
                 interview
               </button>
               <button
-                class="py-2 px-3 bg-white border border-[#EF4444] rounded-lg text-[14px] font-semibold text-[#EF4444] cursor-pointer"
+                class="reject-btn py-2 px-3 bg-white border border-[#EF4444] rounded-lg text-[14px] font-semibold text-[#EF4444] cursor-pointer"
               >
                 Rejected
               </button>
@@ -158,12 +165,12 @@
 
             <div class="buttons-container flex gap-2">
               <button
-                class="py-2 px-3 bg-white border border-[#10B981] rounded-lg text-green text-[#10B981] font-semibold cursor-pointer"
+                class="interview-btn py-2 px-3 bg-white border border-[#10B981] rounded-lg text-green text-[#10B981] font-semibold cursor-pointer"
               >
                 interview
               </button>
               <button
-                class="py-2 px-3 bg-white border border-[#EF4444] rounded-lg text-[14px] font-semibold text-[#EF4444] cursor-pointer"
+                class="reject-btn py-2 px-3 bg-white border border-[#EF4444] rounded-lg text-[14px] font-semibold text-[#EF4444] cursor-pointer"
               >
                 Rejected
               </button>
@@ -206,12 +213,12 @@
 
             <div class="buttons-container flex gap-2">
               <button
-                class="py-2 px-3 bg-white border border-[#10B981] rounded-lg text-green text-[#10B981] font-semibold cursor-pointer"
+                class="interview-btn py-2 px-3 bg-white border border-[#10B981] rounded-lg text-green text-[#10B981] font-semibold cursor-pointer"
               >
                 interview
               </button>
               <button
-                class="py-2 px-3 bg-white border border-[#EF4444] rounded-lg text-[14px] font-semibold text-[#EF4444] cursor-pointer"
+                class="reject-btn py-2 px-3 bg-white border border-[#EF4444] rounded-lg text-[14px] font-semibold text-[#EF4444] cursor-pointer"
               >
                 Rejected
               </button>
@@ -255,12 +262,12 @@
 
             <div class="buttons-container flex gap-2">
               <button
-                class="py-2 px-3 bg-white border border-[#10B981] rounded-lg text-green text-[#10B981] font-semibold cursor-pointer"
+                class="interview-btn py-2 px-3 bg-white border border-[#10B981] rounded-lg text-green text-[#10B981] font-semibold cursor-pointer"
               >
                 interview
               </button>
               <button
-                class="py-2 px-3 bg-white border border-[#EF4444] rounded-lg text-[14px] font-semibold text-[#EF4444] cursor-pointer"
+                class="reject-btn py-2 px-3 bg-white border border-[#EF4444] rounded-lg text-[14px] font-semibold text-[#EF4444] cursor-pointer"
               >
                 Rejected
               </button>
@@ -304,12 +311,12 @@
 
             <div class="buttons-container flex gap-2">
               <button
-                class="py-2 px-3 bg-white border border-[#10B981] rounded-lg text-green text-[#10B981] font-semibold cursor-pointer"
+                class="interview-btn py-2 px-3 bg-white border border-[#10B981] rounded-lg text-green text-[#10B981] font-semibold cursor-pointer"
               >
                 interview
               </button>
               <button
-                class="py-2 px-3 bg-white border border-[#EF4444] rounded-lg text-[14px] font-semibold text-[#EF4444] cursor-pointer"
+                class="reject-btn py-2 px-3 bg-white border border-[#EF4444] rounded-lg text-[14px] font-semibold text-[#EF4444] cursor-pointer"
               >
                 Rejected
               </button>
@@ -353,12 +360,12 @@
 
             <div class="buttons-container flex gap-2">
               <button
-                class="py-2 px-3 bg-white border border-[#10B981] rounded-lg text-green text-[#10B981] font-semibold cursor-pointer"
+                class="interview-btn py-2 px-3 bg-white border border-[#10B981] rounded-lg text-green text-[#10B981] font-semibold cursor-pointer"
               >
                 interview
               </button>
               <button
-                class="py-2 px-3 bg-white border border-[#EF4444] rounded-lg text-[14px] font-semibold text-[#EF4444] cursor-pointer"
+                class="reject-btn py-2 px-3 bg-white border border-[#EF4444] rounded-lg text-[14px] font-semibold text-[#EF4444] cursor-pointer"
               >
                 Rejected
               </button>
@@ -400,12 +407,12 @@
 
             <div class="buttons-container flex gap-2">
               <button
-                class="py-2 px-3 bg-white border border-[#10B981] rounded-lg text-green text-[#10B981] font-semibold cursor-pointer"
+                class="interview-btn py-2 px-3 bg-white border border-[#10B981] rounded-lg text-green text-[#10B981] font-semibold cursor-pointer"
               >
                 interview
               </button>
               <button
-                class="py-2 px-3 bg-white border border-[#EF4444] rounded-lg text-[14px] font-semibold text-[#EF4444] cursor-pointer"
+                class="reject-btn py-2 px-3 bg-white border border-[#EF4444] rounded-lg text-[14px] font-semibold text-[#EF4444] cursor-pointer"
               >
                 Rejected
               </button>
@@ -449,12 +456,12 @@
 
             <div class="buttons-container flex gap-2">
               <button
-                class="py-2 px-3 bg-white border border-[#10B981] rounded-lg text-green text-[#10B981] font-semibold cursor-pointer"
+                class="interview-btn py-2 px-3 bg-white border border-[#10B981] rounded-lg text-green text-[#10B981] font-semibold cursor-pointer"
               >
                 interview
               </button>
               <button
-                class="py-2 px-3 bg-white border border-[#EF4444] rounded-lg text-[14px] font-semibold text-[#EF4444] cursor-pointer"
+                class="reject-btn py-2 px-3 bg-white border border-[#EF4444] rounded-lg text-[14px] font-semibold text-[#EF4444] cursor-pointer"
               >
                 Rejected
               </button>
@@ -481,5 +488,7 @@
         </div>
       </section>
     </main>
+    <!-- js link -->
+     <script src="./script.js"></script>
   </body>
 </html>
