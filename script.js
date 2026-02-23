@@ -18,15 +18,28 @@ const filteredSection = document.getElementById("filtered-section");
 const emptyBox =document.getElementById('empty-box'); 
 
 function calculateCount() {
-  total.innerText = allCardsSection.children.length;
+  const totalJobs = allCardsSection.children.length;
+
+  total.innerText = totalJobs;
   interviewCount.innerText = interviewList.length;
   rejectCount.innerText = rejectedList.length;
-  // jobResultCount.innerText = interviewList.length + "of" +allCardsSection.children.length;
+
+  if (currentStatus === "interview-filter-btn") {
+    jobResultCount.innerText = `${interviewList.length} of ${totalJobs}`;
+  } 
+  else if (currentStatus === "rejected-filter-btn") {
+    jobResultCount.innerText = `${rejectedList.length} of ${totalJobs}`;
+  } 
+  else {
+    jobResultCount.innerText = `${totalJobs} of ${totalJobs}`;
+  }
+  
 
 }
 calculateCount();
 
 function togglingStyle(id) {
+
   allFilterBtn.classList.remove("bg-[#3B82F6]", "text-white");
   interviewFilterBtn.classList.remove("bg-[#3B82F6]", "text-white");
   rejectedFilterBtn.classList.remove("bg-[#3B82F6]", "text-white");
@@ -36,13 +49,10 @@ function togglingStyle(id) {
   rejectedFilterBtn.classList.add("bg-[#FFFFFF]", "text-[#64748B]");
 
   const selected = document.getElementById(id);
-
-  currentStatus = id
+  currentStatus = id;
 
   selected.classList.remove("bg-[#FFFFFF]", "text-[#64748B]");
   selected.classList.add("bg-[#3B82F6]", "text-white");
-
-  // for toggling empty document
 
   emptyBox.classList.add("hidden");
   filteredSection.classList.add("hidden");
@@ -71,7 +81,8 @@ function togglingStyle(id) {
   else if (id == "all-filter-btn") {
     allCardsSection.classList.remove("hidden");
   }
-  
+
+  calculateCount();
 }
 
 mainContainer.addEventListener("click", function (event) {
