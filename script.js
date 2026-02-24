@@ -117,7 +117,7 @@ mainContainer.addEventListener("click", function (event) {
     rejectedList=rejectedList.filter(item=> item.companyName !=cardInfo.companyName)
 
     calculateCount()
-    
+
     renderInterview()
     
   }
@@ -157,6 +157,25 @@ mainContainer.addEventListener("click", function (event) {
     
     
   }
+  else if (event.target.closest(".delete-btn")) {
+
+  const card = event.target.closest(".card-container");
+const companyName = card.querySelector(".company-name").innerText;
+
+  interviewList = interviewList.filter(item => item.companyName !== companyName);
+rejectedList = rejectedList.filter(item => item.companyName !== companyName);
+
+  
+  card.remove();
+
+  calculateCount();
+
+  
+  if (allCardsSection.children.length === 0) {
+    emptyBox.classList.remove("hidden");
+  }
+
+}
 });
 
 function renderInterview() {
