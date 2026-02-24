@@ -1,0 +1,52 @@
+                                                      -------------Answer No - 1-----------
+
+Here’s the difference clearly. 
+1---getElementById(id)= Returns one element with that ID. There can only be one element with a given ID.
+2----getElementsByClassName(class)Returns all elements that have that class as an HTMLCollection. It updates automatically if the DOM changes.
+3---querySelector(selector) Returns the first element that matches any CSS selector by ID, class, tag, etc.
+4----querySelectorAll(selector)  Returns all elements that match the CSS selector as a NodeList. This list does not update automatically if the DOM changes.
+
+                                                     -------------Answer No - 2-----------
+To create and insert a new element in the DOM, follow these steps:
+
+1--Create the element using document.createElement().  Exmple: const div = document.createElement('div');
+2--Add content or attributes . Exmaple: div.textContent = 'Hello!';
+div.classList.add('my-class');
+
+3--Insert it into the DOM using appendChild() or append(). Example: document.body.appendChild(div); .
+
+                                                     -------------Answer No - 3-----------
+
+Event Bubbling is when an event starts at the target element and then moves up through its parent elements all the way to the document.
+
+How it's work---If you click a button inside a div:
+when this event have been complete---Button → Div → Body → Document .
+
+The click event first triggers on the button, then on its parent div, then body, and finally the document.
+
+This is the default behavior for most events in JavaScript.
+
+It allows parent elements to respond to events that happen on their children.
+
+                                                        -------------Answer No - 4-----------
+Event Delegation is a technique where you attach one event listener to a parent element instead of adding listeners to each child element. The parent then checks which child triggered the event.
+
+                                                  ---------Why it’s useful:-----
+
+1.Better performance – fewer event listeners.
+
+2.Works for dynamic elements – elements added later still respond.
+
+3.Cleaner code – keeps your JavaScript simpler and easier to maintain.
+
+                                                            -------------Answer No - 5-----------
+
+preventDefault()  Stops the browser’s default action for an event.
+stopPropagation() → Stops the event from bubbling up to parent elements.
+Use preventDefault() to block default browser behavior.
+Use stopPropagation() to control event flow between elements.
+
+
+
+
+
