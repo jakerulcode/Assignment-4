@@ -55,7 +55,9 @@ function togglingStyle(id) {
   const selected = document.getElementById(id);
   currentStatus = id;
 
+  
   selected.classList.remove("bg-[#FFFFFF]", "text-[#64748B]");
+  
   selected.classList.add("bg-[#3B82F6]", "text-white");
 
   emptyBox.classList.add("hidden");
@@ -239,7 +241,7 @@ function renderInterview() {
 function renderRejected() {
 
 
-  filteredSection.innerHTML = ``;
+  filteredSection.innerHTML = `` ;
 
   for (let rejected of rejectedList) {
     console.log(rejected);
