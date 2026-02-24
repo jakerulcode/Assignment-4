@@ -9,7 +9,7 @@ let interviewCount = document.getElementById("interview-count");
 let rejectCount = document.getElementById("rejected-count");
 
 const allFilterBtn = document.getElementById("all-filter-btn");
-const interviewFilterBtn = document.getElementById("interview-filter-btn");
+const interviewFilterBtn = document.getElementById("interview-filter-btn") ;
 const rejectedFilterBtn = document.getElementById("rejected-filter-btn");
 
 const allCardsSection = document.getElementById("all-cards");
@@ -21,17 +21,21 @@ function calculateCount() {
   const totalJobs = allCardsSection.children.length;
 
   total.innerText = totalJobs;
+
   interviewCount.innerText = interviewList.length;
   rejectCount.innerText = rejectedList.length;
 
   if (currentStatus === "interview-filter-btn") {
+
     jobResultCount.innerText = `${interviewList.length} of ${totalJobs}`;
   } 
+
+
   else if (currentStatus === "rejected-filter-btn") {
     jobResultCount.innerText = `${rejectedList.length} of ${totalJobs}`;
   } 
   else {
-    jobResultCount.innerText = `${totalJobs} of ${totalJobs}`;
+    jobResultCount.innerText = `${totalJobs} of ${totalJobs}` ;
   }
   
 
@@ -109,9 +113,11 @@ mainContainer.addEventListener("click", function (event) {
       interviewList.push(cardInfo);
     }
 
+   
     rejectedList=rejectedList.filter(item=> item.companyName !=cardInfo.companyName)
 
     calculateCount()
+    
     renderInterview()
     
   }
@@ -144,7 +150,10 @@ mainContainer.addEventListener("click", function (event) {
       renderInterview();
     }
 
+    
+    
     calculateCount()
+
     
     
   }
@@ -207,8 +216,10 @@ function renderInterview() {
 }
 
 
-                  // rejected funtion
+                 
 function renderRejected() {
+
+
   filteredSection.innerHTML = ``;
 
   for (let rejected of rejectedList) {
@@ -261,5 +272,10 @@ function renderRejected() {
 
         `;
     filteredSection.appendChild(div);
+  
+  
   }
+
+
+
 }
